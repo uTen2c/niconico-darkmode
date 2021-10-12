@@ -1,3 +1,4 @@
+const tag_body = document.getElementsByTagName('body')[0];
 var getPageTitle = document.title;
 
 const maintenance = [
@@ -8,7 +9,7 @@ const maintenance = [
 if(getPageTitle.includes(maintenance)){
   chrome.storage.local.get(["setting"], function (items) {
     if(items.setting == "true"){
-      $('body').eq(0).addClass('niconico-darkmode-maintenance');
+      tag_body.classList.add('niconico-darkmode-maintenance');
     }
   });
 }

@@ -1,6 +1,8 @@
+const tag_body = document.getElementsByTagName('body')[0];
+
 chrome.storage.local.get(["setting"], function (items) {
   if(items.setting == "true"){
-    $('body').eq(0).addClass('niconico-darkmode-setting-true');
+    tag_body.classList.add('niconico-darkmode-setting-true');
   }
 });
 

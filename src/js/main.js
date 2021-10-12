@@ -1,3 +1,5 @@
+const tag_body = document.getElementsByTagName('body')[0];
+
 //browser-extention
 let manifestData = chrome.runtime.getManifest();
 
@@ -21,16 +23,16 @@ const noheader = [
 
 function setting_true() {
   var true_do = setInterval(function () {
-    $('body').eq(0).addClass('niconico-darkmode-setting-true');
-    if ($('.niconico-darkmode-setting-true').length == true) {
+    tag_body.classList.add('niconico-darkmode-setting-true');
+    if (document.getElementsByClassName('niconico-darkmode-setting-true').length == true) {
       clearInterval(true_do);
     }
   }, 10)
 }
 function setting_false() {
   var false_do = setInterval(function () {
-    $('body').eq(0).removeClass('niconico-darkmode-setting-true');
-    if ($('.niconico-darkmode-setting-true').length == false) {
+    tag_body.classList.remove('niconico-darkmode-setting-true');
+    if (document.getElementsByClassName('niconico-darkmode-setting-true').length == false) {
       clearInterval(false_do);
     }
   }, 10)
@@ -80,27 +82,30 @@ chrome.storage.local.get(["setting"], function (items) {
 
 /*first start*/
 var first_check_count = 0;
-$(function () {
+
+
+window.onload = function () {
   function headercheck(){
-    if (!$('.staticHeader').length) {
+    
+    if (!document.getElementsByClassName('staticHeader').length) {
       var first_check = setInterval(function () {
         if (first_check_count == 0) {
-          if (!$('.common-header-nicodarksetting-but').length) {
-            $('.common-header-wb7b82').eq(0).prepend('<div class="common-header-nicodarksetting-but">設定<div class="nicodark-setting-menupanel"><img class="nicodark-logo" src="https://github.com/AyumuNekozuki/niconico-darkmode/blob/master/lib/ss/ss1.png?raw=true"><div class="nicodark-setting-menu"><label for="nicodark_setting_cb" class="nicodark-label01"><span class="nicodark-span01">ダークモード</span><label for="nicodark_setting_cb" id="nicodark-aria" class="nicodark-label02" aria-checked="false"><input type="checkbox" id="nicodark_setting_cb" class="nicodark-cb"><span class="nicodark-span02"></span></label></label><label for="nicodark_s_top-setting_cb" class="nicodark-label01"><span class="nicodark-span01">総合TOP（イベント時用）</span><label for="nicodark_s_top-setting_cb" id="nicodark-aria-s_top" class="nicodark-label02"><input type="checkbox" id="nicodark_s_top-setting_cb" class="nicodark-cb"><span class="nicodark-span02"></span></label></label></div><p class="nicodark-setting-version-telop">nicodark v'+ ex_version +'<a target="_blank" href="https://forms.gle/yZtasUR7hZGoCjtK8">Feedback</a></p></div></div>');
+          if (!document.getElementsByClassName('common-header-nicodarksetting-but').length) {
+            document.getElementsByClassName('common-header-wb7b82')[0].prepend('<div class="common-header-nicodarksetting-but">設定<div class="nicodark-setting-menupanel"><img class="nicodark-logo" src="https://github.com/AyumuNekozuki/niconico-darkmode/blob/master/lib/ss/ss1.png?raw=true"><div class="nicodark-setting-menu"><label for="nicodark_setting_cb" class="nicodark-label01"><span class="nicodark-span01">ダークモード</span><label for="nicodark_setting_cb" id="nicodark-aria" class="nicodark-label02" aria-checked="false"><input type="checkbox" id="nicodark_setting_cb" class="nicodark-cb"><span class="nicodark-span02"></span></label></label><label for="nicodark_s_top-setting_cb" class="nicodark-label01"><span class="nicodark-span01">総合TOP（イベント時用）</span><label for="nicodark_s_top-setting_cb" id="nicodark-aria-s_top" class="nicodark-label02"><input type="checkbox" id="nicodark_s_top-setting_cb" class="nicodark-cb"><span class="nicodark-span02"></span></label></label></div><p class="nicodark-setting-version-telop">nicodark v'+ ex_version +'<a target="_blank" href="https://forms.gle/yZtasUR7hZGoCjtK8">Feedback</a></p></div></div>');
 
             //ダークモード
-            $('#nicodark_setting_cb').click(function () {
-              var cb = $('#nicodark_setting_cb').prop('checked');
+            document.getElementById('nicodark_setting_cb').click(function () {
+              var cb = document.getElementById('nicodark_setting_cb').property("checked", true);
               if (cb) {
-                $('#nicodark-aria').removeAttr('aria-checked');
-                $('#nicodark-aria').attr('aria-checked', 'true');
+                document.getElementById('nicodark-aria').removeAttribute('aria-checked');
+                document.getElementById('nicodark-aria').setAttribute('aria-checked', 'true');
                 chrome.storage.local.set({
                   "setting": "true"
                 });
                 setting_true();
               } else {
-                $('#nicodark-aria').removeAttr('aria-checked');
-                $('#nicodark-aria').attr('aria-checked', 'false');
+                document.getElementById('nicodark-aria').removeAttribute('aria-checked');
+                document.getElementById('nicodark-aria').setAttribute('aria-checked', 'false');
                 chrome.storage.local.set({
                   "setting": "false"
                 });
@@ -109,11 +114,11 @@ $(function () {
             })
 
             //総合TOP
-            $('#nicodark_s_top-setting_cb').click(function () {
-              var cb = $('#nicodark_s_top-setting_cb').prop('checked');
+            document.getElementById('nicodark_s_top-setting_cb').click(function () {
+              var cb = document.getElementById('nicodark_s_top-setting_cb').property("checked", true);
               if (cb) {
-                $('#nicodark-aria-s_top').removeAttr('aria-checked');
-                $('#nicodark-aria-s_top').attr('aria-checked', 'true');
+                document.getElementById('nicodark-aria-s_top').removeAttribute('aria-checked');
+                document.getElementById('nicodark-aria-s_top').setAttribute('aria-checked', 'true');
                 chrome.storage.local.set({
                   "social_top": "true"
                 });
@@ -121,8 +126,8 @@ $(function () {
                   setting_true();
                 }
               } else {
-                $('#nicodark-aria-s_top').removeAttr('aria-checked');
-                $('#nicodark-aria-s_top').attr('aria-checked', 'false');
+                document.getElementById('nicodark-aria-s_top').removeAttribute('aria-checked');
+                document.getElementById('nicodark-aria-s_top').setAttribute('aria-checked', 'false');
                 chrome.storage.local.set({
                   "social_top": "false"
                 });
@@ -138,15 +143,15 @@ $(function () {
             chrome.storage.local.get(["setting"], function (items) {
               if (items.setting == "true") {
                 document.getElementById("nicodark_setting_cb").checked = true;
-                $('#nicodark-aria').removeAttr('aria-checked');
-                $('#nicodark-aria').attr('aria-checked', 'true');
+                document.getElementById('nicodark-aria').removeAttribute('aria-checked');
+                document.getElementById('nicodark-aria').setAttribute('aria-checked', 'true');
               }
             });
             chrome.storage.local.get(["social_top"], function (items) {
               if (items.social_top == "true") {
                 document.getElementById("nicodark_s_top-setting_cb").checked = true;
-                $('#nicodark-aria-s_top').removeAttr('aria-checked');
-                $('#nicodark-aria-s_top').attr('aria-checked', 'true');
+                document.getElementById('nicodark-aria-s_top').removeAttribute('aria-checked');
+                document.getElementById('nicodark-aria-s_top').setAttribute('aria-checked', 'true');
               }
             });
           } else {
@@ -161,4 +166,4 @@ $(function () {
   if(!(noheader.includes(now_location))){
     headercheck();
   }
-});
+};
