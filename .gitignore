@@ -2,3 +2,5 @@
 #src/**/*.css
 
 dest
+yarn.lock
+/.idea/*

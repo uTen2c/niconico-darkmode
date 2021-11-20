@@ -212,6 +212,8 @@
 
       //プレイヤー
       .MainContainer{
+        box-shadow: none;
+
         .PlayerContainer{
           .ControllerBoxContainer{
             .ControllerBoxCommentAreaContainer{
@@ -257,7 +259,7 @@
                     svg{
                       fill: $main-text-color;
                     }
-                  } 
+                  }
                 }
                 .EasyCommentButton{
                   background: $nico-black !important;
@@ -275,7 +277,7 @@
 
         //プレイヤー右パネル
         .MainContainer-playerPanel{
-          background: $player-black;
+          background: transparent;
 
           .VideoMenuContainer{
             border-bottom: 1px solid $nico-black;
@@ -394,18 +396,21 @@
                     background: none;
                   }
                 }
-                
+
                 .CommentPanelDataGrid{
                   color: $main-text-color;
                   .CommentPanelDataGrid-Body{
                     &::-webkit-scrollbar{
-                      background: $player-black;
+                      background: $scrollbar-background-color;
                     }
                     &::-webkit-scrollbar-thumb{
                       background: $nico-black;
                       &:hover{
                         background: $hover-background-color;
                       }
+                    }
+                    &::-webkit-scrollbar-corner {
+                      background-color: $main-background-color;
                     }
                   }
 
@@ -600,7 +605,7 @@
               .Link:hover{
                 background: $main-url-color;
               }
-            } 
+            }
           }
           .UadVideosContainer{
             a{
@@ -838,5 +843,20 @@
     .Ads728x90WebPcFooter{
       background: none;
     }
+  }
+}
+
+.WatchRecommendation-inner {
+  &::-webkit-scrollbar{
+    background: $scrollbar-background-color !important;
+  }
+  &::-webkit-scrollbar-thumb{
+    background: $nico-black !important;
+    &:hover{
+      background: $hover-background-color !important;
+    }
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: $main-background-color;
   }
 }
