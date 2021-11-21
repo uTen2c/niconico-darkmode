@@ -37,9 +37,6 @@
       }
     }
   }
-  .NicorepoItem-item:hover{
-    box-shadow: inset 0px 0px 20px 7.5px #555;
-  }
 
   //フォロー：ユーザー
   .UserItem-content{
@@ -239,7 +236,7 @@
   /* 20210601 fix end */
 
   //あとで見る
-  .WatchLaterList-item+.WatchLaterList-item{  
+  .WatchLaterList-item+.WatchLaterList-item{
     border-color: $border-background-color;
   }
 
