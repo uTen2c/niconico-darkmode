@@ -380,6 +380,14 @@
       "css": [
         "style_for/site/service_list.css"
       ]
+    },
+    {
+      "matches": [
+        "*://site.nicovideo.jp/danime/*"
+      ],
+      "css": [
+        "style_for/site/danime.css"
+      ]
     }
   ],
   "browser_action": {

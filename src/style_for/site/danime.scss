@@ -1,0 +1,98 @@
+@import "../parts/default";
+
+body {
+  background-color: $main-background-color !important;
+}
+
+body {
+  color: $main-text-color !important;
+
+  .u-c-text {
+    color: $main-text-color !important;
+  }
+}
+
+.c-header-global {
+  background-color: $nico-black !important;
+
+  .c-header-global__menu__link {
+    color: $main-text-color !important;
+  }
+}
+
+.c-header-local {
+  background-color: $main-background-color !important;
+
+  .c-header-local__search-input {
+    color: $main-text-color !important;
+    background-color: $nico-black !important;
+
+    &::placeholder {
+      color: $sub-1-text-color !important;
+    }
+  }
+
+  .c-header-local__work-list {
+    opacity: 0.5;
+  }
+}
+
+.l-wrapper > .u-bgc-gray {
+  background-color: $nico-black !important;
+}
+
+.c-card-slider__edge:hover {
+  background-color: rgba($main-background-color, 0.5) !important;
+}
+
+.c-card-slider .swiper-container .c-swipe__scrollbar .swiper-scrollbar-drag {
+  background-color: $nico-black !important;
+}
+
+.c-card__summary {
+  background-color: $nico-black !important;
+  box-shadow: 0 0 0 2px rgba($nico-black, 75%) !important;
+}
+
+.p-news-area .p-news .p-news__contents .newsBlock li a {
+  color: $main-text-color !important;
+  background-color: $main-background-color !important;
+}
+
+.c-footer {
+  background-color: $nico-black !important;
+
+  .c-footer__list-item {
+    border-right-color: $main-text-color !important;
+    border-left-color: $main-text-color !important;
+
+    .c-footer__list-link {
+      color: $main-text-color !important;
+    }
+  }
+}
+
+.c-box {
+  background-color: $nico-black !important;
+}
+
+article .readbox a {
+  color: $main-text-color !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+}
+
+.headerTabList {
+  background-color: rgba(#FFF, 0.05) !important;
+
+  ul > li > a {
+    color: $main-text-color !important;
+
+    &:hover {
+      background-color: rgba(#FFF, 0.1) !important;
+    }
+  }
+}
+
+.footerPageTop {
+  background-color: rgba(#FFF, 0.05) !important;
+}
